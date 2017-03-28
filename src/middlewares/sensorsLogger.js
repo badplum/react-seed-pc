@@ -15,10 +15,9 @@ import {
   whitelist,
   blacklist,
 } from '../config/log';
-import { getEnvVars } from '../utils/cordova';
 import helper from '../utils/helper';
 
-const envVars = getEnvVars();
+const envVars = {};
 
 // 待发送日志队列
 let QUEUE = [];

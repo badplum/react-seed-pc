@@ -6,7 +6,7 @@
 // import api from '../api';
 
 export default {
-  namespace: 'search',
+  namespace: 'kpi',
   state: {},
   reducers: {},
   effects: {},

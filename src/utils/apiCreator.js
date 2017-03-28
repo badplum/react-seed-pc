@@ -25,18 +25,7 @@ export default function createApi(options = {}) {
     return url;
   };
 
-  // 授权信息: empId, deviceId, token
-  let authInfo = {};
-
   return {
-
-    setAuthInfo(info) {
-      authInfo = info;
-    },
-
-    getAuthInfo() {
-      return authInfo;
-    },
 
     /**
      * @param {string} url API url
@@ -51,9 +40,6 @@ export default function createApi(options = {}) {
         `${finalUrl}?${queryString}`,
         {
           method: 'GET',
-          headers: {
-            ...authInfo,
-          },
         },
       );
     },
@@ -71,7 +57,6 @@ export default function createApi(options = {}) {
         {
           method: 'POST',
           headers: {
-            ...authInfo,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(query),

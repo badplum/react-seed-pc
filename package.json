@@ -78,6 +78,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "lolex": "^1.4.0",
+    "opn": "^4.0.2",
     "postcss-loader": "^1.2.2",
     "postcss-pxtorem": "^4.0.0",
     "pre-commit": "^1.2.2",

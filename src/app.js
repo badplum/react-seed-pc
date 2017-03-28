@@ -27,20 +27,6 @@ if (persistConfig.active) {
   extraEnhancers.push(autoRehydrate());
 }
 
-// 各平台出错信息不一样
-// 貌似也没有status code
-const NETWORK_ERROR_MESSAGE = [
-  'Failed to fetch',
-  'Network request failed',
-];
-
-const getMessage = (message) => {
-  if (_.includes(NETWORK_ERROR_MESSAGE, message)) {
-    return '网络异常';
-  }
-  return message;
-};
-
 // 错误处理
 const onError = (e) => {
   const { message } = e;
