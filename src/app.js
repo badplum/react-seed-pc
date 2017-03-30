@@ -8,19 +8,11 @@ import { browserHistory } from 'dva/router';
 import createLoading from 'dva-loading';
 import createLogger from 'redux-logger';
 import { persistStore, autoRehydrate } from 'redux-persist';
-import _ from 'lodash';
 
 import createSensorsLogger from './middlewares/sensorsLogger';
 import createActivityIndicator from './middlewares/createActivityIndicator';
 import routerConfig from './router';
 import persistConfig from './config/persist';
-import { getQuery } from './utils/helper';
-import api from './api';
-
-// 存储empId, deviceId, token等授权信息
-const query = getQuery(location.search);
-const authInfo = _.pick(query, 'empId', 'deviceId', 'token');
-api.setAuthInfo(authInfo);
 
 const extraEnhancers = [];
 if (persistConfig.active) {

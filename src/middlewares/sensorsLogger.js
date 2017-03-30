@@ -73,13 +73,11 @@ function getExtraData(action) {
 }
 
 function getLogData(action) {
-  // 登录信息
-  const authInfo = api.getAuthInfo();
   const eventType = getEventType(action);
   const extraData = getExtraData(action);
   return {
     ...eventType,
-    distinct_id: authInfo.empId || envVars.uuid, // eslint-disable-line
+    distinct_id: envVars.uuid, // eslint-disable-line
     time: new Date().getTime(),
     project: process.env.NODE_ENV === 'development'
       ? 'MCRM_Test' : 'MCRM_1_0',
