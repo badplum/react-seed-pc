@@ -1,5 +1,5 @@
 /**
- * @file models/search.js
+ * @file models/test.js
  * @author maoquan(maoquan@htsc.com)
  */
 
