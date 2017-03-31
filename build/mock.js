@@ -30,7 +30,7 @@ function mockMiddleware(options) {
     var whitelist = options.whitelist || {};
 
     function localMapping(reqPath) {
-        return reqPath.replace(/^\/mcrm\/api\/v\d/, '');
+        return reqPath.replace(/^\/api/, '');
     }
 
     function resolveMockFilePath(reqPath) {
@@ -99,7 +99,7 @@ function mockMiddleware(options) {
 }
 
 var middleware = mockMiddleware({
-    whitelist: [/^\/?\/mcrm\/api/],
+    whitelist: [/^\/?\/api/],
     mockFilePath: path.join(__dirname, '..')
 });
 

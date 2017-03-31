@@ -18,7 +18,7 @@ const config = {
     storage: localForage,
   },
   // blacklist: ['routing', 'loading', '@@dva'],
-  whitelist: ['status', 'global'],
+  whitelist: ['global'],
 };
 
 export default config;

@@ -5,6 +5,8 @@
 
 import 'whatwg-fetch';
 
+import config from '../config/request';
+
 /**
  * Parses the JSON returned by a network request
  *
@@ -67,7 +69,7 @@ export default function request(url, options) {
       (rosolve, reject) => {// eslint-disable-line
         setTimeout(
           () => reject('请求超时'),
-          15000,
+          config.timeout,
         );
       },
     ),

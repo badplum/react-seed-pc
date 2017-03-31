@@ -13,16 +13,17 @@ import {
 
 import Frame from './layouts/Frame';
 
-import KPIHome from './views/kpi/Home';
+import Test from './views/test/Home';
+import TestDetail from './views/test/Detail';
 
 
 const routes = ({ history }) => (// eslint-disable-line
   <Router history={history}>
     <Route path="/" component={Frame}>
-      <IndexRedirect to="/kpi" />
-      <Route path="kpi">
-        <IndexRoute component={KPIHome} />
-        {/** <Route path="email" component={KPIHome} />*/}
+      <IndexRedirect to="/test" />
+      <Route path="test">
+        <IndexRoute component={Test} />
+        <Route path="detail/:id" component={TestDetail} />
       </Route>
     </Route>
   </Router>

@@ -8,6 +8,7 @@ import { browserHistory } from 'dva/router';
 import createLoading from 'dva-loading';
 import createLogger from 'redux-logger';
 import { persistStore, autoRehydrate } from 'redux-persist';
+import { message } from 'antd';
 
 import createSensorsLogger from './middlewares/sensorsLogger';
 import createActivityIndicator from './middlewares/createActivityIndicator';
@@ -21,14 +22,12 @@ if (persistConfig.active) {
 
 // 错误处理
 const onError = (e) => {
-  const { message } = e;
-  if (message === 'MAG0010') {
-    // Toast.fail(
-    //   '登录超时，请重新登录！',
-    //   1,
-    // );
+  const { message: msg } = e;
+  // See src/utils/request.js
+  if (msg === 'xxx') {
+    message.error('登录超时，请重新登录！');
   } else {
-    // Toast.fail(getMessage(message), 1);
+    message.error(msg);
   }
 };
 
@@ -45,7 +44,7 @@ app.use(createLoading({ effects: true }));
 app.use(createActivityIndicator());
 
 // 3. Model
-app.model(require('./models/kpi'));
+app.model(require('./models/test'));
 
 // 4. Router
 app.router(routerConfig);

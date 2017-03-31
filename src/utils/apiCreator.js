@@ -5,17 +5,16 @@
 
 import request from './request';
 
+import config from '../config/request';
 import { queryToString } from './helper';
 
 /**
  * api生成器
  *
- * @param {Object} options api配置
- *
  * @return {Fucntion}
  */
-export default function createApi(options = {}) {
-  const { prefix = '/mcrm/api/v1' } = options;
+export default function createApi() {
+  const { prefix } = config;
 
   // 如果没有前缀，自动补上
   const padPrefix = (url) => {
