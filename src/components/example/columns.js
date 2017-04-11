@@ -12,7 +12,7 @@ const columns = [
     dataIndex: 'id',
     key: 'id',
     render: (id, item) => (
-      <Link to={`/test/detail/${id}`}>{item.name}</Link>
+      <Link to={`/example/detail/${id}`}>{item.name}</Link>
     ),
   },
   {
@@ -28,8 +28,8 @@ const columns = [
   {
     title: '操作',
     key: 'action',
-    render: id => (
-      <Link to={`/test/detail/${id}`}>修改</Link>
+    render: item => (
+      <Link to={`/example/detail/${item.id}`}>修改</Link>
     ),
   },
 ];

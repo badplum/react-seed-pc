@@ -33,5 +33,8 @@ module.exports = {
     // just be aware of this issue when enabling this option.
     cssSourceMap: true,
     mock: true
-  }
+  },
+  cssModules: true,
+  appSrc: path.resolve(__dirname, '../src'),
+  appNodeModules: path.resolve(__dirname, '../node_modules'),
 }

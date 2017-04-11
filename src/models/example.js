@@ -1,5 +1,5 @@
 /**
- * @file models/test.js
+ * @file models/example.js
  * @author maoquan(maoquan@htsc.com)
  */
 
@@ -8,12 +8,9 @@ import { routerRedux } from 'dva/router';
 import api from '../api';
 
 export default {
-  namespace: 'test',
+  namespace: 'example',
   state: {
-    home: {
-      page: {},
-      list: [],
-    },
+    list: [],
     detail: {},
   },
   reducers: {

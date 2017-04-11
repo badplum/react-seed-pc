@@ -1,5 +1,5 @@
 /**
- * @file test/Detail.js
+ * @file example/Detail.js
  *  xx详情
  * @author maoquan(maoquan@htsc.com)
  */
@@ -7,19 +7,19 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import Info from '../../components/test/Info';
+import Info from '../../components/example/Info';
 
 const mapStateToProps = state => ({
-  detail: state.test.detail,
+  detail: state.example.detail,
 });
 
 const mapDispatchToProps = {
   getDetail: query => ({
-    type: 'test/getDetail',
+    type: 'example/getDetail',
     payload: query || {},
   }),
   save: query => ({
-    type: 'test/save',
+    type: 'example/save',
     payload: query || {},
   }),
 };
@@ -28,14 +28,12 @@ const mapDispatchToProps = {
 export default class Profile extends PureComponent {
 
   static propTypes = {
-    title: PropTypes.string,
     getDetail: PropTypes.func.isRequired,
     detail: PropTypes.object,
     save: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
-    title: 'xx详情',
     detail: {},
   }
 
@@ -46,7 +44,7 @@ export default class Profile extends PureComponent {
   render() {
     const { detail, save } = this.props;
     return (
-      <div className="page-test-detail">
+      <div className="page-example-detail">
         <Info
           data={detail}
           save={save}

@@ -11,19 +11,24 @@ import {
   IndexRedirect,
 } from 'dva/router';
 
-import Frame from './layouts/Frame';
+import Main from './layouts/Main';
 
-import Test from './views/test/Home';
-import TestDetail from './views/test/Detail';
+import Test from './routes/example/Home';
+import TestDetail from './routes/example/Detail';
+import Page from './routes/example/Page';
 
 
 const routes = ({ history }) => (// eslint-disable-line
   <Router history={history}>
-    <Route path="/" component={Frame}>
-      <IndexRedirect to="/test" />
-      <Route path="test">
+    <Route path="/" component={Main}>
+      <IndexRedirect to="/example" />
+      <Route path="example">
         <IndexRoute component={Test} />
         <Route path="detail/:id" component={TestDetail} />
+      </Route>
+      {/** 侧栏测试 */}
+      <Route path="menu:id" component={Page}>
+        <Route path="menu:id" component={Page} />
       </Route>
     </Route>
   </Router>

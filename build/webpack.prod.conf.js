@@ -6,13 +6,53 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var theme = require('../src/theme')
+
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
 
+var cssLoaders = utils.getCSSLoaders({
+  disableCSSModules: !config.cssModules,
+  sourceMap: config.build.productionSourceMap
+});
+
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
-    loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
+    loaders: [
+      {
+        test: /\.css$/,
+        include: config.appSrc,
+        loader: ExtractTextPlugin.extract(
+          'style',
+          cssLoaders.own.join('!')
+        ),
+      },
+      {
+        test: /\.less$/,
+        include: config.appSrc,
+        loader: ExtractTextPlugin.extract(
+          'style',
+          `${cssLoaders.own.join('!')}!less?{"modifyVars":${JSON.stringify(theme)}}`
+        ),
+      },
+      {
+        test: /\.css$/,
+        include: config.appNodeModules,
+        loader: ExtractTextPlugin.extract(
+          'style',
+          cssLoaders.nodeModules.join('!')
+        ),
+      },
+      {
+        test: /\.less$/,
+        include: config.appNodeModules,
+        loader: ExtractTextPlugin.extract(
+          'style',
+          `${cssLoaders.nodeModules.join('!')}!less?{"modifyVars":${JSON.stringify(theme)}}`
+        ),
+      }
+    ]
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {

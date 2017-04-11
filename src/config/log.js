@@ -8,7 +8,8 @@ const config = {
   url: process.env.NODE_ENV === 'development1'
     ? '/' : 'https://crm.htsc.com.cn:2443/abtest/pass/mc/sensors',
   interval: 2 * 60 * 1000,
-  enable: true,
+  // 开启日志监控
+  enable: false,
   blacklist: [
     '@@DVA_LOADING/HIDE',
     '@@DVA_LOADING/SHOW',

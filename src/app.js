@@ -44,7 +44,8 @@ app.use(createLoading({ effects: true }));
 app.use(createActivityIndicator());
 
 // 3. Model
-app.model(require('./models/test'));
+app.model(require('./models/app'));
+app.model(require('./models/example'));
 
 // 4. Router
 app.router(routerConfig);
