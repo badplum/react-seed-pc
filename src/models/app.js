@@ -48,7 +48,7 @@ export default {
         yield put({ type: 'hideNavbar' });
       }
     },
-    * switchMenuPopver({
+    * switchMenuPopover({
       payload,
     }, { put }) {
       yield put({
