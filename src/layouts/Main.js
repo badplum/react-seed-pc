@@ -120,9 +120,13 @@ export default class Main extends Component {
             )
           }
         >
-          {!useMenuPopover ? <aside className={classnames(styles.sider, { [styles.light]: !darkTheme })}>
-            <Sider {...siderProps} />
-          </aside> : ''}
+          {!useMenuPopover
+            ? (
+              <aside className={classnames(styles.sider, { [styles.light]: !darkTheme })}>
+                <Sider {...siderProps} />
+              </aside>
+            ) : ''
+          }
           <div className={styles.main}>
             <Header {...headerProps} />
             <Bread location={location} />
