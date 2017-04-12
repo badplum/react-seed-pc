@@ -7,9 +7,6 @@
 export default {
   namespace: 'app',
   state: {
-    user: {
-      name: '吴彦祖',
-    },
     menuPopoverVisible: false,
     siderFold: localStorage.getItem('htSiderFold') === 'true',
     darkTheme: localStorage.getItem('htDarkTheme') !== 'false',
@@ -28,21 +25,21 @@ export default {
     },
   },
   effects: {
-    *switchSider({
+    * switchSider({
       payload,
     }, { put }) {
       yield put({
         type: 'handleSwitchSider',
       });
     },
-    *changeTheme({
+    * changeTheme({
       payload,
     }, { put }) {
       yield put({
         type: 'handleChangeTheme',
       });
     },
-    *changeNavbar({
+    * changeNavbar({
       payload,
     }, { put }) {
       if (document.body.clientWidth < 769) {
@@ -51,7 +48,7 @@ export default {
         yield put({ type: 'hideNavbar' });
       }
     },
-    *switchMenuPopver({
+    * switchMenuPopver({
       payload,
     }, { put }) {
       yield put({

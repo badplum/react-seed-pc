@@ -36,10 +36,12 @@ function Sider({
 }
 
 Sider.propTypes = {
-  siderFold: PropTypes.bool,
-  location: PropTypes.object,
-  navOpenKeys: PropTypes.array,
-  changeOpenKeys: PropTypes.func,
+  siderFold: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired,
+  navOpenKeys: PropTypes.array.isRequired,
+  changeOpenKeys: PropTypes.func.isRequired,
+  changeTheme: PropTypes.func.isRequired,
+  darkTheme: PropTypes.bool.isRequired,
 };
 
 export default Sider;

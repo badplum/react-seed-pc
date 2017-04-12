@@ -54,6 +54,10 @@ export default class Main extends Component {
     isNavbar: PropTypes.bool.isRequired,
     navOpenKeys: PropTypes.array.isRequired,
 
+    switchMenuPopover: PropTypes.func.isRequired,
+    switchSider: PropTypes.func.isRequired,
+    changeOpenKeys: PropTypes.func.isRequired,
+    changeTheme: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -101,7 +105,6 @@ export default class Main extends Component {
     return (
       <div>
         <Helmet>
-          <title>ANTD ADMIN</title>
           <link rel="icon" href={constants.logoSrc} type="image/x-icon" />
         </Helmet>
         <div

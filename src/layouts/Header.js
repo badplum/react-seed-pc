@@ -66,16 +66,16 @@ function Header({
 }
 
 Header.propTypes = {
-  user: PropTypes.object,
-  logout: PropTypes.func,
-  switchSider: PropTypes.func,
-  siderFold: PropTypes.bool,
-  isNavbar: PropTypes.bool,
-  menuPopoverVisible: PropTypes.bool,
-  location: PropTypes.object,
-  switchMenuPopover: PropTypes.func,
-  navOpenKeys: PropTypes.array,
-  changeOpenKeys: PropTypes.func,
+  user: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired,
+  switchSider: PropTypes.func.isRequired,
+  siderFold: PropTypes.bool.isRequired,
+  isNavbar: PropTypes.bool.isRequired,
+  menuPopoverVisible: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired,
+  switchMenuPopover: PropTypes.func.isRequired,
+  navOpenKeys: PropTypes.array.isRequired,
+  changeOpenKeys: PropTypes.func.isRequired,
 };
 
 export default Header;
