@@ -11,7 +11,7 @@ function Header({
   logout,
   switchSider,
   siderFold,
-  isNavbar,
+  useMenuPopover,
   menuPopoverVisible,
   location,
   switchMenuPopover,
@@ -22,7 +22,7 @@ function Header({
   const menusProps = {
     siderFold: false,
     darkTheme: false,
-    isNavbar,
+    useMenuPopover,
     handleClickNavMenu: switchMenuPopover,
     location,
     navOpenKeys,
@@ -30,7 +30,7 @@ function Header({
   };
   return (
     <div className={styles.header}>
-      {isNavbar
+      {useMenuPopover
         ? <Popover
           placement="bottomLeft"
           onVisibleChange={switchMenuPopover}
@@ -77,7 +77,7 @@ Header.propTypes = {
   logout: PropTypes.func.isRequired,
   switchSider: PropTypes.func.isRequired,
   siderFold: PropTypes.bool.isRequired,
-  isNavbar: PropTypes.bool.isRequired,
+  useMenuPopover: PropTypes.bool.isRequired,
   menuPopoverVisible: PropTypes.bool.isRequired,
   location: PropTypes.object.isRequired,
   switchMenuPopover: PropTypes.func.isRequired,

@@ -7,10 +7,15 @@
 export default {
   namespace: 'app',
   state: {
+    // 屏幕较小时侧栏以popover形式展现
+    useMenuPopover: document.body.clientWidth < 769,
+    // 屏幕较小时侧栏以popover形式展现，menuPopoverVisible控制popover是否显示
     menuPopoverVisible: false,
+    // 侧栏是否显示
     siderFold: localStorage.getItem('htSiderFold') === 'true',
+    // 深色 / 浅色主题切换
     darkTheme: localStorage.getItem('htDarkTheme') !== 'false',
-    isNavbar: document.body.clientWidth < 769,
+    // 当前已展开侧栏菜单
     navOpenKeys: [],
   },
   subscriptions: {
@@ -74,13 +79,13 @@ export default {
     showNavbar(state) {
       return {
         ...state,
-        isNavbar: true,
+        useMenuPopover: true,
       };
     },
     hideNavbar(state) {
       return {
         ...state,
-        isNavbar: false,
+        useMenuPopover: false,
       };
     },
     handleSwitchMenuPopver(state) {

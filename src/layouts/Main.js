@@ -51,7 +51,7 @@ export default class Main extends Component {
     siderFold: PropTypes.bool.isRequired,
     // 是否深色主题
     darkTheme: PropTypes.bool.isRequired,
-    isNavbar: PropTypes.bool.isRequired,
+    useMenuPopover: PropTypes.bool.isRequired,
     navOpenKeys: PropTypes.array.isRequired,
 
     switchMenuPopover: PropTypes.func.isRequired,
@@ -69,7 +69,7 @@ export default class Main extends Component {
       location,
       siderFold,
       darkTheme,
-      isNavbar,
+      useMenuPopover,
       menuPopoverVisible,
       navOpenKeys,
       // 方法
@@ -82,7 +82,7 @@ export default class Main extends Component {
     const headerProps = {
       siderFold,
       location,
-      isNavbar,
+      useMenuPopover,
       menuPopoverVisible,
       navOpenKeys,
       switchMenuPopover,
@@ -112,15 +112,15 @@ export default class Main extends Component {
             classnames(
               styles.layout,
               {
-                [styles.fold]: isNavbar ? false : siderFold,
+                [styles.fold]: useMenuPopover ? false : siderFold,
               },
               {
-                [styles.withnavbar]: isNavbar,
+                [styles.withnavbar]: useMenuPopover,
               },
             )
           }
         >
-          {!isNavbar ? <aside className={classnames(styles.sider, { [styles.light]: !darkTheme })}>
+          {!useMenuPopover ? <aside className={classnames(styles.sider, { [styles.light]: !darkTheme })}>
             <Sider {...siderProps} />
           </aside> : ''}
           <div className={styles.main}>
