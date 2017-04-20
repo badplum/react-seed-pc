@@ -1,9 +1,10 @@
 var path = require('path')
-var config = require('../config')
 var utils = require('./utils')
-var projectRoot = path.resolve(__dirname, '../')
+var config = require('../config')
 
-var env = process.env.NODE_ENV
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
 
 module.exports = {
   entry: {
@@ -11,36 +12,35 @@ module.exports = {
   },
   output: {
     path: config.build.assetsRoot,
-    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: process.env.NODE_ENV === 'production'
+      ? config.build.assetsPublicPath
+      : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['', 'ts', 'tsx', '.web.tsx', '.web.ts', '.web.jsx', '.web.js', '.js', '.less', '.css'],
-    fallback: [path.join(__dirname, '../node_modules')],
+    extensions: ['ts', 'tsx', '.web.tsx', '.web.ts', '.web.jsx', '.web.js', '.js', '.less', '.css'],
+    modules: [
+      resolve('src'),
+      resolve('node_modules'),
+   ],
     alias: {
-      'src': path.resolve(__dirname, '../src'),
-      'static': path.resolve(__dirname, '../src/static'),
-      'components': path.resolve(__dirname, '../src/components')
     }
   },
-  resolveLoader: {
-    fallback: [path.join(__dirname, '../node_modules')]
-  },
   module: {
-    preLoaders: [
+    rules: [
       // {
       //   test: /\.js$/,
       //   loader: 'eslint-loader',
-      //   include: projectRoot,
-      //   exclude: /node_modules/
-      // }
-    ],
-    loaders: [
+      //   enforce: 'pre',
+      //   include: [resolve('src')],
+      //   options: {
+      //     formatter: require('eslint-friendly-formatter')
+      //   }
+      // },
       {
         test: /\.js$/,
-        loader: 'babel',
-        include: projectRoot,
-        exclude: /node_modules/
+        loader: 'babel-loader',
+        include: [resolve('src')]
       },
       {
         test: /\.tsx?$/,
@@ -48,11 +48,11 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json-loader'
       },
       {
         test: /\.(svg)$/i,
-        loader: 'svg-sprite',
+        loader: 'svg-sprite-loader',
         include: [
           // antd-mobile svg
           // require.resolve('antd-mobile').replace(/warn\.js$/, ''),
@@ -61,16 +61,16 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,
-        loader: 'url',
-        query: {
-          limit: 10000,
+        loader: 'url-loader',
+        options: {
+          limit: 1,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url',
-        query: {
+        loader: 'url-loader',
+        options: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
