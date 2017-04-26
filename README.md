@@ -55,6 +55,8 @@ eslint --fix --ext .js src
 
 以`sublime`为例，菜单栏 `View` -> `Line Endings` -> `Unix`
  
+javascript规范主要参考[airbnb规范](https://github.com/airbnb/javascript)
+
 ### 前后端分离 MOCKUP
 
 mockup相关配置在`config/index.js`中:
@@ -73,8 +75,6 @@ mockup相关配置在`config/index.js`中:
     mock: false, // mock开关, true表示不访问远程服务器，使用本地mockup目录数据进行开发
   
 ```
-
-javascript规范主要参考[airbnb规范](https://github.com/airbnb/javascript)
 
 ### git commit hook
 
