@@ -68,12 +68,15 @@ module.exports = {
         }
       },
       {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-        }
+        },
+        exclude: [
+          require.resolve('antd').replace(/warn\.js$/, ''),
+        ]
       }
     ],
     noParse: [new RegExp('node_modules/localforage/dist/localforage.js')]
