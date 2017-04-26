@@ -33,6 +33,28 @@ npm run build
 npm run lint
 ```
 
+注意：如果在windows下开发，因为windows换行符和*nux系统不一致，可能会导致以下lint错误：
+
+```
+157:3    error  Expected linebreaks to be 'LF' but found 'CRLF'  linebreak-style
+```
+
+运行以下命令解决：
+
+```
+eslint --fix --ext .js src
+```
+
+如果eslint命令找不到，尝试
+
+```
+.\node_modules\.bin\eslint.cmd --fix --ext .js src
+```
+
+同时，更改编辑器换行符设置: `CRLF -> LF`:
+
+以`sublime`为例，菜单栏 `View` -> `Line Endings` -> `Unix`
+ 
 ### 前后端分离 MOCKUP
 
 mockup相关配置在`config/index.js`中:
