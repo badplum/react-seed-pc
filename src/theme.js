@@ -1,3 +1,3 @@
 module.exports = {
-  'xx-yy': 'value', // 覆盖antd less 变量
+  'icon-url': '"/static/font/iconfont"',
 };
