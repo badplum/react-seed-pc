@@ -62,7 +62,7 @@ function checkStatus(response) {
  */
 export default function request(url, options) {
   return Promise.race([
-    fetch(url, options)
+    fetch(url, { credentials: 'include', ...options })
       .then(checkStatus)
       .then(parseJSON),
     new Promise(
