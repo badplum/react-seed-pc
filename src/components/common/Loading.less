@@ -1,0 +1,27 @@
+.popmask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(236, 246, 253, 0.5);
+  z-index: 5;
+  
+  :global {
+    .ant-spin {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+
+      &-dot {
+        margin: 0 auto;
+      }
+
+      &-text {
+        font-size: 14px;
+        margin-top: 8px;
+      }
+    }
+  }
+}

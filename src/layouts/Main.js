@@ -9,6 +9,7 @@ import { connect } from 'dva';
 import { Helmet } from 'react-helmet';
 import classnames from 'classnames';
 
+import Loading from '../components/common/Loading';
 import { constants } from '../config';
 
 import Header from './Header';
@@ -21,6 +22,7 @@ import '../css/skin.less';
 
 const mapStateToProps = state => ({
   ...state.app,
+  loading: state.loading.global,
 });
 
 const mapDispatchToProps = {
@@ -47,6 +49,7 @@ export default class Main extends Component {
     children: PropTypes.node.isRequired,
     location: PropTypes.object.isRequired,
     menuPopoverVisible: PropTypes.bool.isRequired,
+    loading: PropTypes.bool.isRequired,
     // 侧栏折叠
     siderFold: PropTypes.bool.isRequired,
     // 是否深色主题
@@ -72,6 +75,7 @@ export default class Main extends Component {
       useMenuPopover,
       menuPopoverVisible,
       navOpenKeys,
+      loading,
       // 方法
       switchMenuPopover,
       switchSider,
@@ -132,6 +136,7 @@ export default class Main extends Component {
             <Bread location={location} />
             <div className={styles.container}>
               <div className={styles.content}>
+                <Loading loading={loading} />
                 {children}
               </div>
             </div>
