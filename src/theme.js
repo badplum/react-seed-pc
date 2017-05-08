@@ -1,3 +1,3 @@
 module.exports = {
-  'icon-url': '"/static/font/iconfont"',
+  'icon-url': '"/static/font/anticon/iconfont"',
 };
