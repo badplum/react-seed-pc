@@ -10,8 +10,8 @@ exports.assetsPath = function (_path) {
 }
 
 exports.getCSSLoaders = function (options) {
-  let own = [];
-  let nodeModules = [];
+  var own = [];
+  var nodeModules = [];
 
   options = options || {}
 
