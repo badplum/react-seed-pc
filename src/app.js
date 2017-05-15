@@ -10,7 +10,6 @@ import createLogger from 'redux-logger';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import { message } from 'antd';
 
-import createSensorsLogger from './middlewares/sensorsLogger';
 import createActivityIndicator from './middlewares/createActivityIndicator';
 import routerConfig from './router';
 import persistConfig from './config/persist';
@@ -34,7 +33,7 @@ const onError = (e) => {
 // 1. Initialize
 const app = dva({
   history: browserHistory,
-  onAction: [createLogger(), createSensorsLogger()],
+  onAction: [createLogger()],
   extraEnhancers,
   onError,
 });
